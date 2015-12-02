@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <title> Directives Part Dos </title>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <!-- ng-cloak
+         ng-switch
+         ng-class
+         ng-show
+    -->
+    <body
+        ng-init="data={name: 'Manny', isVisible: true, loggedIn: false, status: 'red'}">
+            <div ng-cloak><!--will set the display to none; this will keep from flickering {{}} -->
+                <div ng-switch on="data.loggedIn">
+                    <div ng-switch-when="true" ng-class="data.status">
+                        Welcome {{data.name}}
+                    </div>
+                    <div ng-switch-default>Login</div>
+                </div>
+                <br/>
+                <div ng-show="data.isVisible">
+                    Name: <input type="text" ng-model="data.name"/>
+                    {{data.name}}
+                </div>
+            </div>
+            <script src="angular.js"></script>
+    </body>
+</html>
